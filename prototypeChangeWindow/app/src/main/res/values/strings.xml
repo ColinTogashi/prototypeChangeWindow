@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">prototypeDialog</string>
+    <string name="action_settings">Settings</string>
+    <string name="hello_world">Hello world!</string>
+
+    <string name="dialog_fire_missiles">Fire the Missilies!</string>
+    <string name="fire">Fire</string>
+    <string name="cancel">Cancel</string>
+
+    <string name="okay">Okay</string>
+    <string name="variable_max">Max Value</string>
+    <string name="variable_min">Min Value</string>
+    <string name="variable_name">Variable Name</string>
+
+</resources>
