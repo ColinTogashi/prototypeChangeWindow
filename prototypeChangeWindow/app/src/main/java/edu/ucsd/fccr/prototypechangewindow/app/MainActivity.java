@@ -1,14 +1,16 @@
 package edu.ucsd.fccr.prototypechangewindow.app;
 
+import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
+
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
-import android.os.Bundle;
 import android.app.Activity;
 import android.content.Intent;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
@@ -25,7 +27,7 @@ public class MainActivity extends Activity {
     public double[] minArray = {1,1,1,1};
     public double[] maxArray = {5,5,5,5};
     public ArrayList<String> valueStringArray = new ArrayList<String>();
-    public String[] valueSArray = {"1","2","3","4"};
+    //public String[] valueSArray = {"1","2","3","4"};
 
     private final int REQUEST_CODE = 1;
     private int index;
@@ -102,7 +104,7 @@ public class MainActivity extends Activity {
             if(resultCode == RESULT_OK){
                 index = data.getIntExtra("index", 0);
                 valueArray[index] = data.getDoubleExtra("value", 100);
-                valueSArray[index] = Double.toString(valueArray[index]);
+                //valueSArray[index] = Double.toString(valueArray[index]);
             }
             if(resultCode == RESULT_CANCELED){
                 Toast fail = Toast.makeText(getApplicationContext(), "Fail", Toast.LENGTH_SHORT);
@@ -116,7 +118,7 @@ public class MainActivity extends Activity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        
+
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.main, menu);
         return true;

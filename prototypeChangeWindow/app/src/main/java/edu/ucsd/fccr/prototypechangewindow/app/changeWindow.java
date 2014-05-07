@@ -5,7 +5,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
-import android.view.Menu;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
@@ -67,23 +66,30 @@ public class changeWindow extends Activity {
         @Override
         public void afterTextChanged(Editable arg0) {
 
-            if(Double.parseDouble(arg0.toString()) > max){
+            try {
 
-                Toast maxError = Toast.makeText(getApplicationContext(),"Too High",Toast.LENGTH_SHORT);
-                maxError.show();
-                variableValueEditText.setText(Double.toString(value));
+                if (Double.parseDouble(arg0.toString()) > max) {
 
-            } else if(Double.parseDouble(arg0.toString()) < min){
+                    Toast maxError = Toast.makeText(getApplicationContext(), "Too High", Toast.LENGTH_SHORT);
+                    maxError.show();
 
-                Toast minError = Toast.makeText(getApplicationContext(),"Too Low",Toast.LENGTH_SHORT);
-                minError.show();
-                variableValueEditText.setText(Double.toString(value));
+                } else if (Double.parseDouble(arg0.toString()) < min) {
 
-            } else {
+                    Toast minError = Toast.makeText(getApplicationContext(), "Too Low", Toast.LENGTH_SHORT);
+                    minError.show();
 
-                newValue = Double.parseDouble(arg0.toString());
+                } else {
+
+                    newValue = Double.parseDouble(arg0.toString());
+
+                }
+            } catch (NumberFormatException e) {
+
+                Toast notANumber = Toast.makeText(getApplicationContext(), "Not a Number", Toast.LENGTH_SHORT);
+                notANumber.show();
 
             }
+
         }
 
         @Override
@@ -96,16 +102,16 @@ public class changeWindow extends Activity {
         public void onTextChanged(CharSequence arg0, int arg1, int arg2,
                                   int arg3) {
 
-            try{
+            try {
 
-                if(Double.parseDouble(arg0.toString()) > max){
+                if (Double.parseDouble(arg0.toString()) > max) {
 
-                    Toast maxError = Toast.makeText(getApplicationContext(),"Too High",Toast.LENGTH_SHORT);
+                    Toast maxError = Toast.makeText(getApplicationContext(), "Too High", Toast.LENGTH_SHORT);
                     maxError.show();
 
-                } else if(Double.parseDouble(arg0.toString()) < min){
+                } else if (Double.parseDouble(arg0.toString()) < min) {
 
-                    Toast minError = Toast.makeText(getApplicationContext(),"Too Low",Toast.LENGTH_SHORT);
+                    Toast minError = Toast.makeText(getApplicationContext(), "Too Low", Toast.LENGTH_SHORT);
                     minError.show();
 
                 } else {
@@ -113,10 +119,9 @@ public class changeWindow extends Activity {
                     newValue = Double.parseDouble(arg0.toString());
 
                 }
-            }
-            catch(NumberFormatException e) {
+            } catch (NumberFormatException e) {
 
-                Toast notANumber = Toast.makeText(getApplicationContext(),"Not a Number",Toast.LENGTH_SHORT);
+                Toast notANumber = Toast.makeText(getApplicationContext(), "Not a Number", Toast.LENGTH_SHORT);
                 notANumber.show();
 
             }
